@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mantrose Shield — защита твоих файлов</title>
+  <meta name="description" content="Mantrose Shield — лёгкая утилита для мониторинга и защиты папок в реальном времени. Скачай установщик бесплатно." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Фоновые "свечения" -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a href="#" class="logo">
+      <span class="logo-mark">◈</span>
+      <span>Mantrose <b>Shield</b></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#features">Возможности</a>
+      <a href="#preview">Скриншоты</a>
+      <a href="#faq">FAQ</a>
+      <a href="#download" class="btn btn-sm">Скачать</a>
+    </nav>
+    <button class="burger" aria-label="Меню">☰</button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">v1.0 · Windows 10/11 · 64-bit</div>
+    <h1>Твои файлы под<br /><span class="grad">надёжным щитом</span></h1>
+    <p class="hero-sub">
+      Mantrose Shield следит за папками в реальном времени, ловит подозрительные изменения
+      и держит тебя в курсе — через аккуратное окно и иконку в трее.
+    </p>
+
+    <div class="hero-actions">
+      <a href="downloads/MantroseShield_Setup.exe" class="btn btn-primary" download>
+        ⬇ Скачать установщик
+      </a>
+      <a href="#features" class="btn btn-ghost">Узнать больше →</a>
+    </div>
+
+    <div class="hero-meta">
+      <span>✓ Бесплатно</span>
+      <span>✓ Без рекламы</span>
+      <span>✓ ~25 МБ</span>
+    </div>
+
+    <!-- Мок-окно программы -->
+    <div class="app-mock">
+      <div class="app-titlebar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="app-title">Mantrose Shield</span>
+      </div>
+      <div class="app-body">
+        <div class="app-side">
+          <div class="side-item active">🛡 Мониторинг</div>
+          <div class="side-item">📁 Папки</div>
+          <div class="side-item">📜 Журнал</div>
+          <div class="side-item">⚙ Настройки</div>
+        </div>
+        <div class="app-main">
+          <div class="status-row">
+            <span class="status-dot"></span>
+            <span>Защита активна</span>
+            <span class="status-time" id="clock">--:--:--</span>
+          </div>
+          <div class="log">
+            <div class="log-line"><span class="ok">OK</span> Просканировано: Documents/ (124 файла)</div>
+            <div class="log-line"><span class="warn">!</span> Изменён файл: report.docx</div>
+            <div class="log-line"><span class="ok">OK</span> Просканировано: Downloads/</div>
+            <div class="log-line"><span class="warn">!</span> Новый файл: setup.exe</div>
+            <div class="log-line"><span class="ok">OK</span> Целостность базы в порядке</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section">
+    <h2>Почему Mantrose Shield</h2>
+    <p class="section-sub">Минимум лишнего — максимум пользы.</p>
+
+    <div class="features-grid">
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Мгновенная реакция</h3>
+        <p>Движок на <code>watchdog</code> ловит изменения файлов за миллисекунды.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Только то, что нужно</h3>
+        <p>Следи за конкретными папками — без сканирования всего диска.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🪶</div>
+        <h3>Лёгкая</h3>
+        <p>Не грузит CPU и RAM. Работает фоном и не мешает играм.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Приятный интерфейс</h3>
+        <p>Современный дизайн на <code>customtkinter</code>, тёмная и светлая темы.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔔</div>
+        <h3>Трей и уведомления</h3>
+        <p>Иконка в трее через <code>pystray</code> — быстрый доступ и понятные уведомления.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔒</div>
+        <h3>Локально и приватно</h3>
+        <p>Никакой телеметрии. Всё работает у тебя на компьютере.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW -->
+  <section id="preview" class="section">
+    <h2>Как это выглядит</h2>
+    <p class="section-sub">Скриншоты интерфейса.</p>
+
+    <div class="shots">
+      <div class="shot">
+        <div class="shot-inner">
+          <div class="fake-window">
+            <div class="fw-bar"></div>
+            <div class="fw-content">
+              <div class="fw-row"><span class="fw-dot"></span> Защита активна</div>
+              <div class="fw-log"></div>
+              <div class="fw-log short"></div>
+              <div class="fw-log"></div>
+              <div class="fw-log short"></div>
+            </div>
+          </div>
+        </div>
+        <p>Главное окно</p>
+      </div>
+      <div class="shot">
+        <div class="shot-inner">
+          <div class="fake-window">
+            <div class="fw-bar"></div>
+            <div class="fw-content">
+              <div class="fw-item">📁 C:\Users\Documents</div>
+              <div class="fw-item">📁 D:\Projects</div>
+              <div class="fw-item">📁 C:\Users\Downloads</div>
+              <div class="fw-btn">+ Добавить папку</div>
+            </div>
+          </div>
+        </div>
+        <p>Управление папками</p>
+      </div>
+      <div class="shot">
+        <div class="shot-inner">
+          <div class="fake-window">
+            <div class="fw-bar"></div>
+            <div class="fw-content">
+              <div class="fw-log"></div>
+              <div class="fw-log"></div>
+              <div class="fw-log short"></div>
+              <div class="fw-log"></div>
+            </div>
+          </div>
+        </div>
+        <p>Журнал событий</p>
+      </div>
+    </div>
+    <p class="hint">Замени плейсхолдеры на реальные скриншоты — просто вставь <code>&lt;img src="images/1.png"&gt;</code>.</p>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download" class="section download-section">
+    <div class="download-card">
+      <h2>Скачай Mantrose Shield</h2>
+      <p>Установщик для Windows 10/11 (64-bit). Установка занимает меньше минуты.</p>
+      <a href="downloads/MantroseShield_Setup.exe" class="btn btn-primary btn-lg" download>
+        ⬇ Скачать установщик (.exe)
+      </a>
+      <div class="download-meta">
+        <span>Версия 1.0.0</span>
+        <span>·</span>
+        <span>~25 МБ</span>
+        <span>·</span>
+        <span>Windows x64</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <h2>Частые вопросы</h2>
+    <div class="faq">
+      <details>
+        <summary>Нужна ли регистрация?</summary>
+        <p>Нет. Скачивай, устанавливай и пользуйся.</p>
+      </details>
+      <details>
+        <summary>Windows пишет «неизвестный издатель» — это нормально?</summary>
+        <p>Да. Установщик не подписан платным сертификатом. Нажми «Подробнее → Всё равно запустить».</p>
+      </details>
+      <details>
+        <summary>Программа собирает мои данные?</summary>
+        <p>Нет. Всё работает локально, никакой отправки наружу нет.</p>
+      </details>
+      <details>
+        <summary>Можно ли поставить на другой компьютер?</summary>
+        <p>Да, просто скачай установщик заново на нужной машине.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="logo"><span class="logo-mark">◈</span> Mantrose <b>Shield</b></div>
+        <p class="muted">Простая защита твоих файлов.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#download">Скачать</a>
+        <a href="#features">Возможности</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <p class="muted copy">© <span id="year"></span> Mantrose Shield. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
