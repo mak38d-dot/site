@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mantrose Shield — антивирус для Windows</title>
+<meta name="description" content="Mantrose Shield: защита в реальном времени, проверка по хешам и YARA, карантин, VirusTotal и автообновление. Скачать установщик для Windows.">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="Mantrose Shield — антивирус для Windows">
+<meta property="og:image" content="img/protect.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🛡️%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090d18;--panel:#131a2c;--line:#252e49;--text:#e9edfa;--muted:#98a3c7;--violet:#6d5dfc;--violet-h:#8577ff;--teal:#2fd4c0;--ok:#3ddc97;
+--body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--head:"Unbounded","Onest",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--violet-h)}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.glow{position:absolute;inset:0 0 auto 0;height:900px;z-index:-1;background:radial-gradient(60% 50% at 25% 0,rgba(109,93,252,.28),transparent 70%),radial-gradient(45% 40% at 85% 25%,rgba(47,212,192,.16),transparent 70%)}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.brand{display:flex;align-items:center;gap:12px;font:600 17px var(--head);color:var(--text);text-decoration:none}
+.brand svg{width:28px;height:32px}
+nav a{color:var(--muted);text-decoration:none;margin-left:26px;font-size:15px}
+nav a:hover{color:var(--text)}
+.hero{padding:64px 0 0}
+h1{font:600 clamp(30px,4.6vw,56px)/1.1 var(--head);letter-spacing:-.02em;margin:0 0 24px;max-width:15em}
+.lead{color:var(--muted);font-size:20px;max-width:32em;margin:0 0 36px}
+.cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:baseline;gap:12px;background:linear-gradient(135deg,var(--violet),#5a8cff);color:#fff;font:700 18px var(--body);padding:17px 32px;border-radius:14px;text-decoration:none;box-shadow:0 14px 34px -12px rgba(109,93,252,.9)}
+.btn:hover{filter:brightness(1.12)}
+.btn small{font-weight:500;font-size:14px;opacity:.8}
+.meta{color:var(--muted);font-size:15px;margin:0}
+.shot{display:block;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
+.shot img{display:block;width:100%;height:auto}
+.hero .shot{margin-top:56px;box-shadow:0 50px 100px -40px rgba(109,93,252,.55),0 0 0 8px rgba(255,255,255,.03)}
+section{padding:96px 0 0}
+h2{font:600 clamp(24px,3.2vw,36px)/1.2 var(--head);letter-spacing:-.01em;margin:0 0 14px;max-width:20em}
+.sub{color:var(--muted);max-width:38em;margin:0 0 56px}
+.tour{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center;margin-bottom:84px}
+.tour:nth-of-type(even){grid-template-columns:1.2fr .8fr}
+.tour:nth-of-type(even) .shot{order:-1}
+h3{font:600 22px/1.3 var(--head);margin:0 0 14px}
+.tour p{color:var(--muted);margin:0 0 16px}
+.tour ul{margin:0;padding:0;list-style:none}
+.tour li{padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--line);font-size:16px}
+.tour li::before{content:"";position:absolute;left:2px;top:19px;width:10px;height:10px;border-radius:50%;background:var(--teal)}
+dl.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:0 64px;margin:0}
+dl.feat div{padding:22px 0;border-top:1px solid var(--line)}
+dt{font-weight:700;margin-bottom:4px}
+dd{margin:0;color:var(--muted);font-size:16px}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+ol.steps li{counter-increment:s;padding-top:20px;border-top:2px solid var(--violet)}
+ol.steps li::before{content:counter(s);display:block;font:600 34px var(--head);color:var(--teal);margin-bottom:8px}
+ol.steps b{display:block;margin-bottom:4px}
+ol.steps span{color:var(--muted);font-size:16px}
+.hash{display:flex;gap:12px;flex-wrap:wrap}
+code{flex:1;min-width:260px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 18px;font:14px ui-monospace,"Cascadia Mono",Consolas,monospace;word-break:break-all;color:#c5cdea}
+.copy{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:0 24px;font:600 15px var(--body);cursor:pointer}
+.copy:hover{border-color:var(--violet-h)}
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:right;color:var(--teal);font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);margin:10px 0 0;max-width:46em}
+.final{margin-top:96px;padding:56px 40px;border-radius:24px;background:linear-gradient(135deg,rgba(109,93,252,.25),rgba(47,212,192,.12));border:1px solid var(--line);text-align:center}
+.final h2{margin:0 auto 14px}
+.final p{color:var(--muted);margin:0 0 28px}
+footer{margin-top:80px;border-top:1px solid var(--line);padding:32px 0 52px;color:var(--muted);font-size:14.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:860px){nav{display:none}.hero{padding-top:28px}.tour,.tour:nth-of-type(even){grid-template-columns:1fr;gap:28px;margin-bottom:64px}.tour:nth-of-type(even) .shot{order:0}dl.feat,ol.steps{grid-template-columns:1fr}section{padding-top:72px}.final{padding:40px 22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="#top" id="top"><svg viewBox="0 0 30 34" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6d5dfc"/><stop offset="1" stop-color="#2fd4c0"/></linearGradient></defs><path d="M15 1 2 6v10c0 8 5.5 14 13 17 7.5-3 13-9 13-17V6z" fill="url(#g)"/><path d="m9.5 16.5 4 4 7-8" fill="none" stroke="#090d18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Mantrose Shield</a>
+  <nav><a href="#tour">Программа</a><a href="#features">Возможности</a><a href="#install">Установка</a><a href="#faq">Вопросы</a></nav>
+</header>
+
+<main>
+<div class="hero">
+  <h1>Антивирус, который следит за файлами, пока вы работаете</h1>
+  <p class="lead">Mantrose Shield проверяет новые файлы в реальном времени, сверяет их с базами хешей и правилами YARA и изолирует угрозы в карантине. Всё управление на одном понятном экране.</p>
+  <div class="cta">
+    <a class="btn" href="MantroseShield_Setup.exe" download>Скачать для Windows <small>39,2 МБ</small></a>
+    <p class="meta" id="ver">Бесплатно. Установка занимает около минуты.</p>
+  </div>
+  <a class="shot" href="img/protect.webp" target="_blank" rel="noopener"><img src="img/protect.webp" width="1600" height="835" fetchpriority="high" alt="Главный экран Mantrose Shield: статус «Вы защищены», счётчики и список компонентов защиты"></a>
+</div>
+
+<section id="tour">
+  <h2>Как выглядит программа</h2>
+  <p class="sub">Три экрана, с которыми вы будете работать чаще всего. Нажмите на картинку, чтобы открыть её крупно.</p>
+
+  <div class="tour">
+    <div>
+      <h3>Главный экран: вся защита за один взгляд</h3>
+      <p>Крупный щит меняет цвет: зелёный, когда всё в порядке, жёлтый или красный, если нужно ваше внимание. Под ним четыре счётчика и лента событий, а справа список компонентов защиты.</p>
+      <ul>
+        <li>Быстрая проверка одной кнопкой</li>
+        <li>Переключатель защиты в реальном времени</li>
+        <li>Счётчики: проверено файлов, найдено угроз, в карантине, сигнатур в базе</li>
+        <li>Подключённый USB-накопитель проверяется сам</li>
+      </ul>
+    </div>
+    <a class="shot" href="img/protect.webp" target="_blank" rel="noopener"><img loading="lazy" src="img/protect.webp" width="1600" height="835" alt="Главный экран программы со счётчиками и лентой последних событий"></a>
+  </div>
+
+  <div class="tour">
+    <div>
+      <h3>Проверка: шесть режимов под любую задачу</h3>
+      <p>Выберите, что проверять, и нажмите на карточку. Во время проверки видно, сколько файлов уже просмотрено и сколько угроз найдено, а остановить её можно кнопкой «Стоп».</p>
+      <ul>
+        <li>Быстрая: Загрузки, Рабочий стол, Документы и Temp</li>
+        <li>Полная: все диски компьютера</li>
+        <li>Автозагрузка: программы, которые запускаются с Windows</li>
+        <li>Папка или отдельный файл на ваш выбор</li>
+        <li>Процессы: запущенные программы в памяти</li>
+      </ul>
+    </div>
+    <a class="shot" href="img/scan.webp" target="_blank" rel="noopener"><img loading="lazy" src="img/scan.webp" width="1600" height="830" alt="Экран проверки с шестью режимами: быстрая, полная, автозагрузка, папка, файл, процессы"></a>
+  </div>
+
+  <div class="tour">
+    <div>
+      <h3>Обновления без хлопот</h3>
+      <p>Когда выходит новая версия, вверху окна появляется кнопка «Обновить». Рядом со шкалой видно, сколько уже скачано, с какой скоростью и сколько осталось. После обновления программа показывает, что изменилось.</p>
+      <ul>
+        <li>Перед установкой проверяется контрольная сумма SHA-256</li>
+        <li>Ваши настройки при обновлении сохраняются</li>
+        <li>Окно «Что нового» с понятным списком изменений</li>
+      </ul>
+    </div>
+    <a class="shot" href="img/whatsnew.webp" target="_blank" rel="noopener"><img loading="lazy" src="img/whatsnew.webp" width="1600" height="836" alt="Окно «Что нового» со списком изменений по версиям"></a>
+  </div>
+</section>
+
+<section id="features">
+  <h2>Что внутри</h2>
+  <p class="sub">Несколько уровней защиты работают вместе: если один что-то пропустит, другой может заметить.</p>
+  <dl class="feat">
+    <div><dt>Защита в реальном времени</dt><dd>Следит за выбранными папками вместе с вложенными и реагирует, как только в них появляется файл.</dd></div>
+    <div><dt>Хеши и правила YARA</dt><dd>Файлы сравниваются с базой сигнатур и правилами YARA. Базы можно обновить в один клик.</dd></div>
+    <div><dt>Эвристика</dt><dd>Находит файлы, которые маскируются под документы, и подозрительные скрипты, даже если их ещё нет в базах.</dd></div>
+    <div><dt>Карантин</dt><dd>Опасные файлы изолируются, а не удаляются сразу. Их можно просмотреть и при необходимости восстановить.</dd></div>
+    <div><dt>VirusTotal</dt><dd>Подозрительный файл можно проверить в облаке. Нужен только ваш бесплатный API-ключ.</dd></div>
+    <div><dt>MalwareBazaar</dt><dd>База известных образцов вредоносных программ подключается как ещё один источник сигнатур.</dd></div>
+    <div><dt>Работа в фоне</dt><dd>Программа живёт в трее и не мешает: окно можно закрыть, а защита продолжит работать.</dd></div>
+    <div><dt>Темы и языки</dt><dd>Шесть цветовых тем и интерфейс на русском или английском. Переключается в Настройках.</dd></div>
+  </dl>
+</section>
+
+<section id="install">
+  <h2>Как установить</h2>
+  <p class="sub">Мастер установки сам обо всём спросит. Если программа уже стоит, он обновит её и сохранит ваши настройки.</p>
+  <ol class="steps">
+    <li><b>Скачайте установщик</b><span>Нажмите «Скачать для Windows». Файл называется MantroseShield_Setup.exe.</span></li>
+    <li><b>Запустите его</b><span>Откройте файл и следуйте подсказкам мастера установки.</span></li>
+    <li><b>Проверьте защиту</b><span>Откройте программу: на главном экране должно быть написано «Вы защищены».</span></li>
+  </ol>
+</section>
+
+<section id="verify">
+  <h2>Проверьте скачанный файл</h2>
+  <p class="sub">Сравните SHA-256 вашего файла с этой суммой. Если они совпадают, файл не повреждён и не подменён. В PowerShell её показывает команда <span style="font-family:ui-monospace,Consolas,monospace;color:var(--text)">Get-FileHash MantroseShield_Setup.exe</span>.</p>
+  <div class="hash">
+    <code id="sha">86e99e5e6087689b663090d507999c35d0c2e40f2b249f496eda1f2e513f0ffb</code>
+    <button class="copy" id="copy" type="button">Скопировать</button>
+  </div>
+</section>
+
+<section id="faq">
+  <h2>Частые вопросы</h2>
+  <details><summary>Windows показывает предупреждение SmartScreen. Что делать?</summary><p>Так бывает с новыми программами, которые ещё мало кто скачивал. Сверьте контрольную сумму выше, затем нажмите «Подробнее» и «Выполнить в любом случае».</p></details>
+  <details><summary>Нужен ли интернет для работы?</summary><p>Для проверки по локальным базам и правилам интернет не нужен. Он нужен для обновления баз, поиска новых версий и проверки через VirusTotal.</p></details>
+  <details><summary>Что будет с найденной угрозой?</summary><p>Файл попадёт в карантин, а не пропадёт навсегда. Во вкладке «Карантин» его можно посмотреть и восстановить, если это была ложная тревога.</p></details>
+  <details><summary>Как обновить программу?</summary><p>Когда выходит новая версия, вверху окна появляется кнопка «Обновить». Остальное программа сделает сама и перезапустится.</p></details>
+  <details><summary>Как удалить Mantrose Shield?</summary><p>Через «Параметры Windows», раздел «Приложения». Программа есть в списке установленных.</p></details>
+</section>
+
+<div class="final">
+  <h2>Защитите свой компьютер за минуту</h2>
+  <p>Установщик для Windows, бесплатно.</p>
+  <a class="btn" href="MantroseShield_Setup.exe" download>Скачать Mantrose Shield <small>39,2 МБ</small></a>
+</div>
+</main>
+
+<footer>
+  <span>Mantrose Shield</span>
+  <span><a href="https://github.com/mak38d-dot/mantrose-shield">Проект на GitHub</a> · <a href="https://github.com/mak38d-dot/mantrose-shield/releases">Все версии</a></span>
+</footer>
+</div>
+<script>
+(function(){
+  var b=document.getElementById("copy");
+  b.addEventListener("click",function(){
+    var t=document.getElementById("sha").textContent.trim();
+    var done=function(){b.textContent="Скопировано";setTimeout(function(){b.textContent="Скопировать"},1800)};
+    try{navigator.clipboard.writeText(t).then(done)}catch(e){}
+  });
+  fetch("https://api.github.com/repos/mak38d-dot/mantrose-shield/releases/latest").then(function(r){return r.ok?r.json():null}).then(function(j){
+    if(j&&j.tag_name)document.getElementById("ver").textContent="Последняя версия "+j.tag_name.replace(/^v/i,"")+". Бесплатно.";
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
